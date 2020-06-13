@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="_fragments :: header-fragment(~{::title})">
+    <title>5xx</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu-fragment(0)"></nav>
+
+<br>
+<br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui error message">
+        <div class="ui container">
+            <h2 th:text="${status}">5xx</h2>
+            <span th:text="${message}"></span>
+            <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<footer th:replace="_fragments :: footer-fragment"></footer>
+</body>
+</html>

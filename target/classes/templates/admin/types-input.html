@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="admin/_fragments :: header-fragment(~{::title})">
+    <title>分类新增</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu-fragment(2)"></nav>
+<!--二级菜单-->
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" th:href="@{/admin/types/input}" class="active teal item">新增</a>
+            <a href="#" th:href="@{/admin/types}" class="item">列表</a>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<!--中间内容-->
+<div class="m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <form action="#" th:action="@{/admin/types}" class="ui form" th:object="${type}" method="post">
+            <input type="hidden" name="_method" value="put" th:if="${type.id != null}"/>
+            <input th:if="${type.id != null}" type="hidden" name="id" th:value="${type.id}">
+            <div class="required field">
+                <div class="ui left labeled input">
+                    <label class="ui teal basic label">名称</label>
+                    <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+
+                </div>
+            </div>
+            <div class="ui error message"></div>
+            <!--/*/
+            <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+                <i class="close icon"></i>
+                <div class="header">验证失败</div>
+                <p th:errors="*{name}">提交信息错误</p>
+            </div>
+            /*/-->
+            <div class="ui right aligned container">
+                <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+                <button class="ui teal submit button">提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!--footer-->
+<footer th:replace="admin/_fragments :: footer-fregment"></footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script>
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hidden');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+
+    /*表单校验*/
+    $('.ui.form').form({
+        fields: {
+            name: {
+                identifier: 'name',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入分类名称',
+                }]
+            }
+        }
+    });
+    $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+</script>
+</body>
+</html>

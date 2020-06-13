@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="_fragments :: header-fragment(~{::title})">
+    <title>关于我</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu-fragment(5)"></nav>
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big">
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="eleven wide column">
+                    <div class="ui segment">
+                        <img src="https://picsum.photos/id/0/800/600" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="m-text">丘友垚，哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈吼吼吼吼嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎吼</p>
+                        <p class="m-text">丘友垚，哈哈哈哈哈哈哈哈哈哈哈哈吼吼吼吼吼</p>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">编程</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">炉石</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">LOL</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">运动</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">java</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">mysql</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">oracle</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">spring</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+                        <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="#" class="ui qq circular icon button" data-content="1059894903"><i class="qq icon"></i></a>
+                    </div>
+                    <div class="ui wechat-qr flowing popup transition hidden">
+                        <img src="../static/images/WeChat.jpg" alt="" class="ui rounded image" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--footer-->
+<footer th:replace="_fragments :: footer-fragment"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script th:src="@{/js/my.js}"></script>
+<script>
+    $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+</script>
+</body>
+</html>
